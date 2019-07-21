@@ -111,6 +111,9 @@ public class MyList<E> {
             this.length += mList.length;
 
             //把当前对象存储的值 join 上新进来的值
+            for(int i =0 ;;){
+
+            }
         }
     }
 
