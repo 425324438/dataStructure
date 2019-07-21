@@ -11,6 +11,10 @@ public class MyListTest {
         com.line.MyList<String> list = new com.line.MyList<>();
 
         list.add("aasd");
-        list.join(list);
+        list.join(list,list,list,list,list);
+
+        for(int i = 0;i < list.getLength(); i ++){
+            System.out.println(list.getElement(i));
+        }
     }
 }

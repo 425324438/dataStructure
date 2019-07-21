@@ -17,7 +17,7 @@ public class MyList<E> {
     private Object[] values;
 
     public MyList(){
-        this.length = DEFAULT_SIZT;
+        this.length = 0;
         this.values = new Object[DEFAULT_SIZT];
     }
 
@@ -76,21 +76,24 @@ public class MyList<E> {
     public void add(E element){
         if(this.length == this.values.length){
             //扩容
-            this.values = expansion();
+            this.values = expansion(0);
         }
         addObject(element);
     }
 
     private void addObject(E element) {
         this.length++;
-        this.values[this.length] = element;
+        this.values[this.length -1 ] = element;
     }
 
     /**
-     * 数组扩容（两倍扩容）
+     * 数组扩容（默认两倍扩容）
      */
-    private Object[] expansion() {
-        Object[] array = new Object[this.length * 2];
+    private Object[] expansion(int size) {
+        if(size <= 0){
+            size = this.length * 2;
+        }
+        Object[] array = new Object[size];
         System.arraycopy(this.values, 0, array, 0, this.length);
         return array;
     }
@@ -99,8 +102,15 @@ public class MyList<E> {
      * 连接集合
      */
     public void join(MyList... list){
-        for(MyList list1 : list){
-            System.out.println(list1);
+        Object[] temp = new Object[0];
+        for(MyList mList : list){
+            //存储当然对象的值
+            System.arraycopy(temp, 0, this.values, 0, this.length);
+            //扩容
+            this.values =  expansion(this.length + mList.length);
+            this.length += mList.length;
+
+            //把当前对象存储的值 join 上新进来的值
         }
     }
 
