@@ -1,9 +1,15 @@
 package com.line;
 
+import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * @author: 425324438@qq.com
  * @Date: 2019/7/21 13:08
- * @Description: 线性表
+ * @Description: 数组实现的 list ，实现了一部分功能
  */
 public class MyList<E> {
 
@@ -28,7 +34,7 @@ public class MyList<E> {
         int index = -1;
         for(int i =0 ;i < this.length; i ++ ){
             if(this.values[i].equals(element)){
-                return index;
+                return i;
             }
         }
         return index;
@@ -70,6 +76,9 @@ public class MyList<E> {
      */
     public E NextElement(E element){
         int indexOf = indexOf(element);
+        if(indexOf + 1 > this.getLength()){
+            return null;
+        }
         return (E) this.values[indexOf +1];
     }
 
@@ -81,6 +90,10 @@ public class MyList<E> {
         addObject(element);
     }
 
+    /**
+     * 添加元素到 集合中
+     * @param element
+     */
     private void addObject(E element) {
         this.length++;
         this.values[this.length -1 ] = element;
@@ -88,33 +101,31 @@ public class MyList<E> {
 
     /**
      * 数组扩容（默认两倍扩容）
+     * @param size 扩容长度的值
      */
     private Object[] expansion(int size) {
         if(size <= 0){
             size = this.length * 2;
         }
         Object[] array = new Object[size];
-        System.arraycopy(this.values, 0, array, 0, this.length);
+        System.arraycopy(this.values, 0, array, 0, this.length -1);
         return array;
     }
 
     /**
      * 连接集合
      */
-    public void join(MyList... list){
-        Object[] temp = new Object[0];
+    public void join(MyList... list) {
+        Object[] temp = {};
         for(MyList mList : list){
-            //存储当然对象的值
-            System.arraycopy(temp, 0, this.values, 0, this.length);
-            //扩容
-            this.values =  expansion(this.length + mList.length);
-            this.length += mList.length;
-
-            //把当前对象存储的值 join 上新进来的值
-            for(int i =0 ;;){
-
+            if(this.equals(mList)){
+                continue;
+            }
+            for (int i =0;i < mList.getLength(); i ++){
+                this.add((E) mList.getElement(i));
             }
         }
+
     }
 
 

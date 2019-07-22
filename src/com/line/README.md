@@ -4,7 +4,7 @@
     
 1. 数组实现
 
-	[MyList](#https://github.com/425324438/dataStructure-java/blob/master/src/main/java/com/line/MyList.java)
+	[MyList](#https://github.com/425324438/dataStructure-java/blob/master/src/main/java/com/line/MyList.java) 实现的功能并没有那么多，只是为了练习。一切功能都可以扩展
  
 2. 链表实现
 
