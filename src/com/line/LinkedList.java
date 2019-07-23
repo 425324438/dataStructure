@@ -1,11 +1,13 @@
 package com.line;
 
+import com.base.AbstractList;
+
 /**
  * @author: 425324438@qq.com
  * @Date: 2019/7/22 23:34
  * @Description: 链表实现的list
  */
-public class LinkdList {
+public class LinkedList extends AbstractList {
 
     private Next next;
 
@@ -47,19 +49,13 @@ public class LinkdList {
      * @param data
      */
     public void remove(Object data){
-
-    }
-
-    /**
-     * 根据元素修改修改
-     * @param index 下标
-     * @param data 修改为此数据
-     */
-    public void update( int index , Object data){
-        if(index > this.length){
-            return;
+        if(this.next.equals(data)){
+            this.next = this.next.getNext();
+        } else {
+            this.next.remove(data);
         }
     }
+
 
     /**
      * 根据下标获取元素
@@ -79,9 +75,15 @@ public class LinkdList {
     /**
      * 查询元素所在的位置
      */
-    public int get(Object data){
-
-        return 0;
+    public int indexOf(Object data){
+        int i = -1;
+        if(this.next.getDate().equals(data)){
+            i++;
+            return i;
+        } else {
+            this.next.getNext().indexOf(data, i);
+        }
+        return i;
     }
 
     public int getLength() {
@@ -90,6 +92,16 @@ public class LinkdList {
 
     public void setLength(int length) {
         this.length = length;
+    }
+
+    @Override
+    public void print() {
+        Next next = this.next;
+        while (next != null){
+            System.out.print(next.getDate() + ",");
+            next = next.getNext();
+        }
+        System.out.println("");
     }
 
 
@@ -104,6 +116,14 @@ public class LinkdList {
         public Next(Object date, Next next){
             this.date = date;
             this.next = next;
+        }
+
+        public int indexOf(Object data, int index){
+            index ++;
+            if(this.getDate().equals(data)){
+                return index;
+            }
+            return this.getNext().indexOf(data, index);
         }
 
         /**
@@ -125,7 +145,15 @@ public class LinkdList {
             if(count == index){
                 this.setNext(this.getNext().getNext());
             } else {
-                this.remove(index, count);
+                this.getNext().remove(index, count);
+            }
+        }
+
+        public void remove(Object data){
+            if(this.date.equals(data)){
+                this.date = this.next;
+            } else {
+                this.getNext().remove(data);
             }
         }
 
