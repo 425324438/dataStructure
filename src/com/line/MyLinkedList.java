@@ -7,7 +7,7 @@ import com.base.AbstractList;
  * @Date: 2019/7/22 23:34
  * @Description: 链表实现的list
  */
-public class LinkedList extends AbstractList {
+public class MyLinkedList extends AbstractList {
 
     private Next next;
 
@@ -49,7 +49,7 @@ public class LinkedList extends AbstractList {
      * @param data
      */
     public void remove(Object data){
-        if(this.next.equals(data)){
+        if(this.next.getDate().equals(data)){
             this.next = this.next.getNext();
         } else {
             this.next.remove(data);
@@ -77,22 +77,20 @@ public class LinkedList extends AbstractList {
      */
     public int indexOf(Object data){
         int i = -1;
-        if(this.next.getDate().equals(data)){
-            i++;
-            return i;
-        } else {
-            this.next.getNext().indexOf(data, i);
+        for(Next n = next ; n != null; n = n.getNext()){
+            if(n.getDate().equals(data)){
+                i++;
+                return i;
+            }
+            i ++;
         }
-        return i;
+        return -1;
     }
 
     public int getLength() {
         return length;
     }
 
-    public void setLength(int length) {
-        this.length = length;
-    }
 
     @Override
     public void print() {
@@ -113,17 +111,16 @@ public class LinkedList extends AbstractList {
         public Next(Object date){
             this.date = date;
         }
-        public Next(Object date, Next next){
-            this.date = date;
-            this.next = next;
-        }
 
         public int indexOf(Object data, int index){
             index ++;
             if(this.getDate().equals(data)){
                 return index;
             }
-            return this.getNext().indexOf(data, index);
+            if(this.getNext() != null){
+                return this.getNext().indexOf(data, index);
+            }
+            return  index;
         }
 
         /**
@@ -150,10 +147,12 @@ public class LinkedList extends AbstractList {
         }
 
         public void remove(Object data){
-            if(this.date.equals(data)){
-                this.date = this.next;
-            } else {
-                this.getNext().remove(data);
+            if(this.getNext() != null){
+                if(this.getNext().getDate().equals(data)){
+                    this.next = this.getNext().getNext();
+                } else {
+                    this.getNext().remove(data);
+                }
             }
         }
 

@@ -1,6 +1,6 @@
 package com.line.test;
 
-import com.line.LinkedList;
+import com.line.MyLinkedList;
 
 /**
  * @author: 425324438@qq.com
@@ -9,7 +9,7 @@ import com.line.LinkedList;
  */
 public class MyLikndListTest {
     public static void main(String[] args) {
-        LinkedList likd = new LinkedList();
+        MyLinkedList likd = new MyLinkedList();
 
         likd.add("12addsa");
         likd.add("1111");
@@ -21,9 +21,22 @@ public class MyLikndListTest {
         }
         System.out.println("获取第一个元素 = " + likd.get(1));
 
-        Double v = Math.random() * 4;
-        System.out.println("随机删除一个元素");
-        likd.remove(v.intValue());
+//        //根据下标删除
+//        Double v = Math.random() * 4;
+//        System.out.println("随机删除一个元素");
+//        likd.remove(v.intValue());
+//        likd.print();
+
+        //根据元素删除
+//        likd.remove("222222");
+//        likd.print();
+
+
+        System.out.println("查找元素索引位置 =  "+ likd.indexOf("33333"));
+
+
         likd.print();
+
+
     }
 }
