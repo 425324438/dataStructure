@@ -4,13 +4,13 @@
     
 1. 数组实现
 
-	[MyList](#https://github.com/425324438/dataStructure-java/blob/master/src/main/java/com/line/MyList.java) 实现的功能并没有那么多，只是为了练习。一切功能都可以扩展
+	[MyList](#MyList.java) 实现的功能并没有那么多，只是为了练习。一切功能都可以扩展
  
 2. 链表实现
 
     1.  线性链表
     
-        [MyLinkedList](#https://github.com/425324438/dataStructure/blob/master/src/com/line/MyLinkedList.java) 线性链表，也称单向链表，一些简单的实现
+        [MyLinkedList](#MyLinkedList.java) 线性链表，也称单向链表，一些简单的实现
 
     2.  循环链表
             
