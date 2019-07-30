@@ -5,17 +5,17 @@ package com.base;
  * @Date: 2019/7/29 23:42
  * @Description: 循环链表抽象类
  */
-public abstract class  AbstractLoopLinkedList {
+public abstract class AbstractDoubleLinkedList {
 
     /**
      * 向下插入数据
      */
-    public abstract void addDown();
+    public abstract void addDown(Object data);
 
     /**
      * 向上插入数据
      */
-    public abstract void addUp();
+    public abstract void addUp(Object data);
 
     /**
      * 根据元素获取其上一个位置的数据

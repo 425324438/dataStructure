@@ -23,5 +23,7 @@
          ![双向链表](./img/双向链表.jpg)
             
             每个节点都包含了上一个节点的指针和下一个节点的指针
+            
+          [MyDoubleLinkedList](#MyDoubleLinkedList.java) 简单实现
 
 3. 一元多项式的表示及相加    
