@@ -14,13 +14,13 @@
 
     2.  循环链表
             
-        ![循环链表][https://raw.githubusercontent.com/425324438/dataStructure/master/src/com/line/img/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8.jpg]
+        ![循环链表][./img/循环链表.jpg]
             
             循环链表：尾部元素指向头部
 
     3.  双向链表
            
-         ![双向链表][https://raw.githubusercontent.com/425324438/dataStructure/master/src/com/line/img/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8.jpg]
+         ![双向链表][./img/双向链表.jpg]
             
             每个节点都包含了上一个节点的指针和下一个节点的指针
 
