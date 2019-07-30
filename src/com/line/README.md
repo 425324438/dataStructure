@@ -13,7 +13,11 @@
         [MyLinkedList](#https://github.com/425324438/dataStructure/blob/master/src/com/line/MyLinkedList.java) 线性链表，也称单向链表，一些简单的实现
 
     2.  循环链表
+            
+            循环链表：尾部元素指向头部
 
     3.  双向链表
+    
+            每个节点都包含了上一个节点的指针和下一个节点的指针
 
 3. 一元多项式的表示及相加    
